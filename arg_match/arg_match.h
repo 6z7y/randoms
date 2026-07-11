@@ -30,7 +30,7 @@ void arg_pop2(int *argc, char *argv[], int index)
 // returns:
 // 1 = there
 // -1 = not there
-int arg_check_opt(int argc, char **argv, const char *opt)
+int arg_check_opt(int argc, char *argv[], const char *opt)
 {
   for (int i=1; i<argc; i++) {
     if (!strcmp(argv[i], opt)) return 1;
@@ -43,7 +43,7 @@ int arg_check_opt(int argc, char **argv, const char *opt)
 // returns:
 // 1 = there
 // -1 = not there
-int arg_check_opts(int argc, char **argv, const char *opt[])
+int arg_check_opts(int argc, char *argv[], const char *opt[])
 {
   for (int i=1; i<argc; i++) {
     for (int j=0; j<argc; j++) {
@@ -58,11 +58,11 @@ int arg_check_opts(int argc, char **argv, const char *opt[])
 // returns:
 // 1 = there
 // 0 = not there
-int arg_check_opt_with_value(int *argc, char *argv[], const char *opt, const char *value)
+int arg_check_opt_with_value(int argc, char *argv[], const char *opt, const char *value)
 {
-  for (int i=1; i<*argc; i++) {
+  for (int i=1; i<argc; i++) {
     if (!strcmp(argv[i], opt)) {
-      if (i + 1 >= *argc) return 0;
+      if (i + 1 >= argc) return 0;
       if (!strcmp(argv[i+1], value)) return 1;
     }
   }
@@ -74,12 +74,12 @@ int arg_check_opt_with_value(int *argc, char *argv[], const char *opt, const cha
 // returns:
 // 1 = there
 // 0 = not there
-int arg_check_opts_with_values(int *argc, char *argv[], const char *opts[], const char *values[])
+int arg_check_opts_with_values(int argc, char *argv[], const char *opts[], const char *values[])
 {
-  for (int i=1; i<*argc; i++) {
+  for (int i=1; i<argc; i++) {
     for (int j=0; opts[j] != NULL; j++) {
       if (!strcmp(argv[i], opts[j])) {
-        if (i + 1 >= *argc) return 0;
+        if (i + 1 >= argc) return 0;
         for (int k=0; values[k] != NULL; k++) {
           if (!strcmp(argv[i+1], values[k])) {
             return 1;
@@ -90,6 +90,8 @@ int arg_check_opts_with_values(int *argc, char *argv[], const char *opts[], cons
   }
   return 0;
 }
+
+
 
 // fn for match option with argv then pop matched
 //
