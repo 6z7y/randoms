@@ -29,7 +29,7 @@ void arg_pop2(int *argc, char *argv[], int index)
 //
 // returns:
 // 1 = there
-// -1 = not there
+// 0 = not there
 int arg_check_opt(int argc, char *argv[], const char *opt)
 {
   for (int i=1; i<argc; i++) {
@@ -42,7 +42,7 @@ int arg_check_opt(int argc, char *argv[], const char *opt)
 //
 // returns:
 // 1 = there
-// -1 = not there
+// 0 = not there
 int arg_check_opts(int argc, char *argv[], const char *opts[])
 {
   for (int i=1; i<argc; i++) {
@@ -97,7 +97,7 @@ int arg_check_opts_with_values(int argc, char *argv[], const char *opts[], const
 //
 // returns:
 // 1 = matched
-// -1 = not matched
+// -2 = not matched
 int arg_match_opt(int *argc, char *argv[], const char *opt)
 {
   for (int i=1; i<*argc; i++) {
@@ -106,7 +106,7 @@ int arg_match_opt(int *argc, char *argv[], const char *opt)
       return 1;
     }
   }
-  return -1;
+  return -2;
 }
 
 // fn for match options with argv then pop matched
