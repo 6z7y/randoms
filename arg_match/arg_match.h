@@ -76,7 +76,7 @@ int arg_match_opt_with_value(int *argc, char *argv[], const char *opt, const cha
 // returns:
 // 0... = matched, returns index of matched value
 // -1 = not matched or value missed
-int arg_match_opts_with_value(int *argc, char *argv[], const char *opts[], const char *values[])
+int arg_match_opts_with_values(int *argc, char *argv[], const char *opts[], const char *values[])
 {
   for (int i=1; i<*argc; i++) {
     for (int j=0; opts[j] != NULL; j++) {
