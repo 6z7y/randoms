@@ -43,11 +43,11 @@ int arg_check_opt(int argc, char *argv[], const char *opt)
 // returns:
 // 1 = there
 // -1 = not there
-int arg_check_opts(int argc, char *argv[], const char *opt[])
+int arg_check_opts(int argc, char *argv[], const char *opts[])
 {
   for (int i=1; i<argc; i++) {
-    for (int j=0; j<argc; j++) {
-      if (!strcmp(argv[i], opt[j])) return 1;
+    for (int j=0; opts[j] != NULL; j++) {
+      if (!strcmp(argv[i], opts[j])) return 1;
     }
   }
   return 0;
