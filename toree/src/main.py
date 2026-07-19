@@ -5,7 +5,7 @@ from data import Context
 import layout
 import utils
 
-ctx = Context(1, 0, 0) # layout default 1
+ctx = Context(1) # layout default 1
 args = sys.argv
 
 if (len(args) < 2):
