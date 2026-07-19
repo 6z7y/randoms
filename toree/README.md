@@ -22,7 +22,8 @@ Recursively walks a directory and prints its structure.
 
 ## get from source
 ```bash
-git clone https://codeberg.org/6z7y/toree.git
+git clone https://codeberg.org/6z7y/randoms
+cd toree
 ```
 
 ## Usage
