@@ -1,0 +1,24 @@
+#!/bin/env python3
+
+from sys import argv
+from PIL import Image, ImageTk
+import tkinter
+
+if (len(argv) < 2):
+    print(f"usage: viwer [File]")
+    exit(0)
+
+# 1. init tkinter
+root = tkinter.Tk()
+root.title("viewer image")
+root.configure(bg="#000000")
+
+# 2. open image in tkinter
+img = Image.open(argv[1])
+img_tk = ImageTk.PhotoImage(img)
+
+label_img = tkinter.Label(root, image=img_tk)
+label_img.place(relx=0.5, rely=0.5, anchor="center")
+
+# loop program
+root.mainloop()
